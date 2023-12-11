@@ -10,7 +10,6 @@
 		659C04D12AC6D4C0000865D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C04D02AC6D4C0000865D7 /* AppDelegate.swift */; };
 		659C04D32AC6D4C0000865D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C04D22AC6D4C0000865D7 /* SceneDelegate.swift */; };
 		659C04D52AC6D4C0000865D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C04D42AC6D4C0000865D7 /* ViewController.swift */; };
-		659C04D82AC6D4C0000865D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 659C04D62AC6D4C0000865D7 /* Main.storyboard */; };
 		659C04DB2AC6D4C0000865D7 /* Connect4.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 659C04D92AC6D4C0000865D7 /* Connect4.xcdatamodeld */; };
 		659C04DD2AC6D4C1000865D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 659C04DC2AC6D4C1000865D7 /* Assets.xcassets */; };
 		659C04E02AC6D4C1000865D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 659C04DE2AC6D4C1000865D7 /* LaunchScreen.storyboard */; };
@@ -22,7 +21,6 @@
 		659C04D02AC6D4C0000865D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		659C04D22AC6D4C0000865D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		659C04D42AC6D4C0000865D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		659C04D72AC6D4C0000865D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		659C04DA2AC6D4C0000865D7 /* Connect4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Connect4.xcdatamodel; sourceTree = "<group>"; };
 		659C04DC2AC6D4C1000865D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		659C04DF2AC6D4C1000865D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,7 +64,6 @@
 				659C04D02AC6D4C0000865D7 /* AppDelegate.swift */,
 				659C04D22AC6D4C0000865D7 /* SceneDelegate.swift */,
 				659C04D42AC6D4C0000865D7 /* ViewController.swift */,
-				659C04D62AC6D4C0000865D7 /* Main.storyboard */,
 				659C04DC2AC6D4C1000865D7 /* Assets.xcassets */,
 				659C04DE2AC6D4C1000865D7 /* LaunchScreen.storyboard */,
 				659C04E12AC6D4C1000865D7 /* Info.plist */,
@@ -120,7 +117,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 659C04C82AC6D4C0000865D7 /* Build configuration list for PBXProject "Connect4" */;
+			buildConfigurationList = 659C04C82AC6D4C0000865D7 /* Build configuration list for PBXProject "Ass5_Connect4" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -145,7 +142,6 @@
 			files = (
 				659C04E02AC6D4C1000865D7 /* LaunchScreen.storyboard in Resources */,
 				659C04DD2AC6D4C1000865D7 /* Assets.xcassets in Resources */,
-				659C04D82AC6D4C0000865D7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,14 +162,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		659C04D62AC6D4C0000865D7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				659C04D72AC6D4C0000865D7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		659C04DE2AC6D4C1000865D7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -311,12 +299,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QJJ8RUJ7UW;
+				DEVELOPMENT_TEAM = FF54H898ZR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Connect4/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,7 +311,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ie.ucd.cs.comp47390.Connect4;
+				PRODUCT_BUNDLE_IDENTIFIER = "ie.ucd.cs.comp47390.Ass5-Connect4";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -339,12 +326,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QJJ8RUJ7UW;
+				DEVELOPMENT_TEAM = FF54H898ZR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Connect4/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -352,7 +338,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ie.ucd.cs.comp47390.Connect4;
+				PRODUCT_BUNDLE_IDENTIFIER = "ie.ucd.cs.comp47390.Ass5-Connect4";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -363,7 +349,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		659C04C82AC6D4C0000865D7 /* Build configuration list for PBXProject "Connect4" */ = {
+		659C04C82AC6D4C0000865D7 /* Build configuration list for PBXProject "Ass5_Connect4" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				659C04E22AC6D4C1000865D7 /* Debug */,

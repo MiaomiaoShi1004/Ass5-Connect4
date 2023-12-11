@@ -9,56 +9,81 @@ import UIKit
 import Alpha0C4
 
 class ViewController: UIViewController {
-    // MARK: UI Outlets
-    @IBOutlet weak var gameLabel: UILabel!
-    @IBOutlet weak var dropDiscButton: UIButton!
-    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
-    
+    private var gameLabel: UILabel!
+    private var dropDiscButton: UIButton!
+    private var indicatorView: UIActivityIndicatorView!
 
-    // Set random bot parameters
     private var botColor: GameSession.DiscColor = Bool.random() ? .red : .yellow
     private var isBotFirst = Bool.random()
-    // Game session
     private var gameSession = GameSession()
 
-    
-    // MARK: VC lifecyle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Start new game session
+        setupUI()
         newGameSession()
     }
 
-    // Start game session with random bot parameter
+    private func setupUI() {
+        view.backgroundColor = .white
+
+        // Game Label
+        gameLabel = UILabel()
+        gameLabel.translatesAutoresizingMaskIntoConstraints = false
+        gameLabel.textAlignment = .center
+        gameLabel.numberOfLines = 0
+        view.addSubview(gameLabel)
+
+        // Drop Disc Button
+        dropDiscButton = UIButton(type: .system)
+        dropDiscButton.translatesAutoresizingMaskIntoConstraints = false
+        dropDiscButton.setTitle("Drop Disc Randomly", for: .normal)
+        dropDiscButton.addTarget(self, action: #selector(dropDiscAction), for: .touchUpInside)
+        view.addSubview(dropDiscButton)
+
+        // Indicator View
+        indicatorView = UIActivityIndicatorView(style: .medium)
+        indicatorView.translatesAutoresizingMaskIntoConstraints = false
+        indicatorView.hidesWhenStopped = true
+        view.addSubview(indicatorView)
+
+        setupConstraints()
+    }
+
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            // Game Label Constraints
+            gameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            gameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            gameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            gameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+
+            // Drop Disc Button Constraints
+            dropDiscButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            dropDiscButton.topAnchor.constraint(equalTo: gameLabel.bottomAnchor, constant: 20),
+
+            // Indicator View Constraints
+            indicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            indicatorView.topAnchor.constraint(equalTo: dropDiscButton.bottomAnchor, constant: 20)
+        ])
+    }
+
     private func newGameSession() {
-        // Random bot parameters
         botColor = Bool.random() ? .red : .yellow
         isBotFirst = Bool.random()
-        
-        // Print game layout
+
         print("CONNECT4 \(gameSession.boardLayout.rows) rows by \(gameSession.boardLayout.columns) columns")
-        
-        // Start game, resuming with some discs
-        // set initialMoves to [(Int, Int)]() to start with clear board
         let initialMoves = [(row: 1, column: 4), (row: 2, column: 4)]
         self.gameSession.startGame(delegate: self, botPlays: botColor, first: isBotFirst, initialPositions: initialMoves)
     }
 
-    
-    // MARK: - UI Action
-    @IBAction func userAction(_ sender: UIButton) {
-        // Drop disc in random column
+    @objc private func dropDiscAction() {
         var column: Int
         repeat { column = Int.random(in: 1...gameSession.boardLayout.columns) }
         while !gameSession.isValidMove(column)
-        
-        // Drop disc
+
         gameSession.dropDisc(atColumn: column)
     }
-
 }
-
 
 // MARK: - GameSessionDelegate
 

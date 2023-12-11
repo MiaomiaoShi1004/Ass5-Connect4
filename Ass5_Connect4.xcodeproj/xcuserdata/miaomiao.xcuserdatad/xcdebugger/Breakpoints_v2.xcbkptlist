@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "6EA042D3-2CC7-47B1-BF9E-3B565EE75235"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73098A4C-894C-4E4D-90E4-5D9FCFF2991F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Connect4/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "73098A4C-894C-4E4D-90E4-5D9FCFF2991F - 24a0e5a033fec35c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Connect4.ViewController.didDropDisc(_: Alpha0C4.GameSession, color: Alpha0C4.GameSession.DiscColor, at: (row: Swift.Int, column: Swift.Int), index: Swift.Int, textLog: Swift.String) -&gt; ()"
+                  moduleName = "Connect4"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miaomiao/Documents/UCD%20csc/SWIFT/Assignment5/Connect4-Startup/Connect4/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "808">
+               </Location>
+               <Location
+                  uuid = "73098A4C-894C-4E4D-90E4-5D9FCFF2991F - 24a0e5a033fec017"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Connect4.ViewController.didDropDisc(_: Alpha0C4.GameSession, color: Alpha0C4.GameSession.DiscColor, at: (row: Swift.Int, column: Swift.Int), index: Swift.Int, textLog: Swift.String) -&gt; ()"
+                  moduleName = "Connect4"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miaomiao/Documents/UCD%20csc/SWIFT/Assignment5/Connect4-Startup/Connect4/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "784">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "577DA811-A4CA-4C9D-A60D-24BCD2D9E281"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Connect4/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "ViewController"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
