@@ -9,22 +9,38 @@ import UIKit
 import Alpha0C4
 
 class ViewController: UIViewController {
+    
+    // UI components declared as private variables
     private var gameLabel: UILabel!
     private var dropDiscButton: UIButton!
+    
     private var indicatorView: UIActivityIndicatorView!
-
+    
+    // Variables to determine bot's color and whether it plays first
     private var botColor: GameSession.DiscColor = Bool.random() ? .red : .yellow
     private var isBotFirst = Bool.random()
+    // Instance of the game session
     private var gameSession = GameSession()
 
+    // Called after the view controller's view is loaded into memory
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         newGameSession()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showFirstPlayerSelectionAlert()
+    }
+    
+    // Sets up UI elements programmatically
     private func setupUI() {
+        
         view.backgroundColor = .white
+//        backgroundColor -- purple
+//        view.backgroundColor = UIColor(red: 121/255, green: 69/255, blue: 255/255, alpha: 1)
+
 
         // Game Label
         gameLabel = UILabel()
@@ -66,22 +82,53 @@ class ViewController: UIViewController {
             indicatorView.topAnchor.constraint(equalTo: dropDiscButton.bottomAnchor, constant: 20)
         ])
     }
-
+    
+    // Starts a new game session with random bot parameters
     private func newGameSession() {
         botColor = Bool.random() ? .red : .yellow
-        isBotFirst = Bool.random()
+        
+        showFirstPlayerSelectionAlert()
+    }
+    
+    // New method to show an alert for first player selection
+    private func showFirstPlayerSelectionAlert() {
+        let alertController = UIAlertController(title: "Who plays first?", message: nil, preferredStyle: .alert)
 
+        let userAction = UIAlertAction(title: "You", style: .default) { [weak self] _ in
+            self?.isBotFirst = false
+            self?.continueGameSetup()
+        }
+        alertController.addAction(userAction)
+
+        let botAction = UIAlertAction(title: "Bot", style: .default) { [weak self] _ in
+            self?.isBotFirst = true
+            self?.continueGameSetup()
+        }
+        alertController.addAction(botAction)
+
+        present(alertController, animated: true)
+    }
+    
+    // New method to continue game setup after player selection
+    private func continueGameSetup() {
         print("CONNECT4 \(gameSession.boardLayout.rows) rows by \(gameSession.boardLayout.columns) columns")
         let initialMoves = [(row: 1, column: 4), (row: 2, column: 4)]
         self.gameSession.startGame(delegate: self, botPlays: botColor, first: isBotFirst, initialPositions: initialMoves)
     }
-
+    
+    // Action for dropping a disc in a random column when the button is pressed
     @objc private func dropDiscAction() {
         var column: Int
+        // Ensure that a valid column is chosen.
+        
+        // $$ not random, tab where, click where
+        // $$ maybe not repeat, since you have to pass a column: Int then you can
         repeat { column = Int.random(in: 1...gameSession.boardLayout.columns) }
         while !gameSession.isValidMove(column)
 
         gameSession.dropDisc(atColumn: column)
+    //?? what's the logic here? when you find a valid column, then you .dropDisc?
+        //?? So this whole function is user doing something
     }
 }
 
