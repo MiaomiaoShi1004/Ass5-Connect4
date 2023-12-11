@@ -12,8 +12,7 @@ class ViewController: UIViewController {
     
     // UI components declared as private variables
     private var gameLabel: UILabel!
-    private var dropDiscButton: UIButton!
-    
+    private var columnInputTextField: UITextField!
     private var indicatorView: UIActivityIndicatorView!
     
     // Variables to determine bot's color and whether it plays first
@@ -49,12 +48,15 @@ class ViewController: UIViewController {
         gameLabel.numberOfLines = 0
         view.addSubview(gameLabel)
 
-        // Drop Disc Button
-        dropDiscButton = UIButton(type: .system)
-        dropDiscButton.translatesAutoresizingMaskIntoConstraints = false
-        dropDiscButton.setTitle("Drop Disc Randomly", for: .normal)
-        dropDiscButton.addTarget(self, action: #selector(dropDiscAction), for: .touchUpInside)
-        view.addSubview(dropDiscButton)
+        // Setup for the Column Input Text Field
+        columnInputTextField = UITextField()
+        columnInputTextField.translatesAutoresizingMaskIntoConstraints = false
+        columnInputTextField.placeholder = "Enter column number"
+        columnInputTextField.borderStyle = .roundedRect
+        columnInputTextField.keyboardType = .numberPad
+        columnInputTextField.returnKeyType = .done
+        columnInputTextField.delegate = self
+        view.addSubview(columnInputTextField)
 
         // Indicator View
         indicatorView = UIActivityIndicatorView(style: .medium)
@@ -73,13 +75,15 @@ class ViewController: UIViewController {
             gameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             gameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
 
-            // Drop Disc Button Constraints
-            dropDiscButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dropDiscButton.topAnchor.constraint(equalTo: gameLabel.bottomAnchor, constant: 20),
+            // Constraints for Column Input Text Field
+            columnInputTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            columnInputTextField.topAnchor.constraint(equalTo: gameLabel.bottomAnchor, constant: 20),
+            columnInputTextField.widthAnchor.constraint(equalToConstant: 100), // Set a suitable width
+        
 
             // Indicator View Constraints
             indicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            indicatorView.topAnchor.constraint(equalTo: dropDiscButton.bottomAnchor, constant: 20)
+            indicatorView.topAnchor.constraint(equalTo: columnInputTextField.bottomAnchor, constant: 20)
         ])
     }
     
@@ -118,17 +122,15 @@ class ViewController: UIViewController {
     
     // Action for dropping a disc in a random column when the button is pressed
     @objc private func dropDiscAction() {
-        var column: Int
-        // Ensure that a valid column is chosen.
-        
-        // $$ not random, tab where, click where
-        // $$ maybe not repeat, since you have to pass a column: Int then you can
-        repeat { column = Int.random(in: 1...gameSession.boardLayout.columns) }
-        while !gameSession.isValidMove(column)
+        guard let inputText = columnInputTextField.text, !inputText.isEmpty,
+              let column = Int(inputText), column >= 1 && column <= gameSession.boardLayout.columns,
+              gameSession.isValidMove(column) else {
+            // Handle invalid input
+            // You might want to show an alert or a message to the user
+            return
+        }
 
         gameSession.dropDisc(atColumn: column)
-    //?? what's the logic here? when you find a valid column, then you .dropDisc?
-        //?? So this whole function is user doing something
     }
 }
 
@@ -144,18 +146,19 @@ extension ViewController: GameSessionDelegate
         // Inital state
         case .cleared:
             gameLabel.text = textLog
-            dropDiscButton.titleLabel?.text = "Drop Disc Randomly"
+            columnInputTextField.placeholder = "Enter an integer"
+            columnInputTextField.isEnabled = true
             
         // Player evaluating position to play
         case .busy(_):
-            // Disable button while thinking
-            dropDiscButton.isEnabled = false
+            // Disable text field while the game is processing
+            columnInputTextField.isEnabled = false
             
         // Waiting for play action
         case .idle(let color):
             let isUserTurn = (color != botColor)
-            // Enable button for user
-            dropDiscButton.isEnabled = isUserTurn
+            // Enable text field for user if it's their turn
+            columnInputTextField.isEnabled = isUserTurn
             if !isUserTurn {
                 // Bot play
                 gameSession.dropDisc()
@@ -163,8 +166,8 @@ extension ViewController: GameSessionDelegate
             
         // End of game, update UI with game result, start new game
         case .ended(let outcome):
-            // Disable button
-            dropDiscButton.isEnabled = false
+            // Disable text field
+            columnInputTextField.isEnabled = false
             
             // Display game result
             var gameResult: String
@@ -208,3 +211,12 @@ extension ViewController: GameSessionDelegate
     }
 
 }
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() // Dismiss the keyboard
+        dropDiscAction() // Call the modified drop disc action
+        return true
+    }
+}
+
