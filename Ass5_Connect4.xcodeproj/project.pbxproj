@@ -14,6 +14,8 @@
 		659C04DD2AC6D4C1000865D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 659C04DC2AC6D4C1000865D7 /* Assets.xcassets */; };
 		659C04E02AC6D4C1000865D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 659C04DE2AC6D4C1000865D7 /* LaunchScreen.storyboard */; };
 		65BE83CD2AC70A1F004AA520 /* Alpha0C4 in Frameworks */ = {isa = PBXBuildFile; productRef = 65BE83CC2AC70A1F004AA520 /* Alpha0C4 */; };
+		AA7EF5AB2B27DF1C00746F2D /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7EF5AA2B27DF1C00746F2D /* GridViewController.swift */; };
+		AA7EF5AD2B27DF4F00746F2D /* BubbleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7EF5AC2B27DF4F00746F2D /* BubbleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		659C04DF2AC6D4C1000865D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		659C04E12AC6D4C1000865D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		659C04E72AC6D762000865D7 /* Alpha0C4 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Alpha0C4; sourceTree = "<group>"; };
+		AA7EF5AA2B27DF1C00746F2D /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		AA7EF5AC2B27DF4F00746F2D /* BubbleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				659C04D02AC6D4C0000865D7 /* AppDelegate.swift */,
 				659C04D22AC6D4C0000865D7 /* SceneDelegate.swift */,
 				659C04D42AC6D4C0000865D7 /* ViewController.swift */,
+				AA7EF5AA2B27DF1C00746F2D /* GridViewController.swift */,
+				AA7EF5AC2B27DF4F00746F2D /* BubbleViewController.swift */,
 				659C04DC2AC6D4C1000865D7 /* Assets.xcassets */,
 				659C04DE2AC6D4C1000865D7 /* LaunchScreen.storyboard */,
 				659C04E12AC6D4C1000865D7 /* Info.plist */,
@@ -153,8 +159,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				659C04D52AC6D4C0000865D7 /* ViewController.swift in Sources */,
+				AA7EF5AB2B27DF1C00746F2D /* GridViewController.swift in Sources */,
 				659C04D12AC6D4C0000865D7 /* AppDelegate.swift in Sources */,
 				659C04D32AC6D4C0000865D7 /* SceneDelegate.swift in Sources */,
+				AA7EF5AD2B27DF4F00746F2D /* BubbleViewController.swift in Sources */,
 				659C04DB2AC6D4C0000865D7 /* Connect4.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
